@@ -1,1 +1,1 @@
-DELETE FROM employee where employeeID >= 200
+DELETE FROM employee where employeeSSN = '00011000'

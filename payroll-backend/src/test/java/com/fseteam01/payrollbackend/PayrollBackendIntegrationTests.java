@@ -10,9 +10,13 @@ import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.jdbc.Sql;
+
+import java.util.List;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -22,8 +26,16 @@ class PayrollBackendIntegrationTests {
 
 	@Test
 	@Order(1)
-	@DisplayName("get a employee by id")
+	@DisplayName("get all employees")
 	@Sql("/insert.sql")
+	public void getAllEmployeesTest() {
+		ResponseEntity<List<Employee>> response = testRestTemplate.exchange("/hrpayroll/api/v1/retrieveAllEmployees", HttpMethod.GET, null, new ParameterizedTypeReference<List<Employee>>() {});
+		Assertions.assertTrue(response.getBody().size()>0);
+	}
+
+	@Test
+	@Order(2)
+	@DisplayName("get a employee by id")
 	public void getAEmployeeByIdTest() {
 		ResponseEntity<Employee> response = testRestTemplate.getForEntity("/hrpayroll/api/v1/retrieveAEmployee/200", Employee.class);
 		Assertions.assertEquals(200, response.getBody().getEmployeeId());
@@ -34,7 +46,7 @@ class PayrollBackendIntegrationTests {
 	}
 
 	@Test
-	@Order(2)
+	@Order(3)
 	@DisplayName("update a employee")
 	public void updateAEmployeeTest() {
 		Employee employee = new Employee();
@@ -42,7 +54,7 @@ class PayrollBackendIntegrationTests {
 		employee.setEmployeeFirstName("JOHN");
 		employee.setEmployeeLastName("DOE");
 		employee.setEmployeeJobTitle("SENIOR ASSOCIATE");
-		employee.setEmployeeSSN("12345678");
+		employee.setEmployeeSSN("00011000");
 		employee.setEmployeeHomeAddress("1103 Spring Ave");
 		employee.setEmployeeSalary("110000.00");
 		HttpEntity<Employee> request = new HttpEntity<>(employee);
@@ -52,14 +64,14 @@ class PayrollBackendIntegrationTests {
 	}
 
 	@Test
-	@Order(3)
+	@Order(4)
 	@DisplayName("add a employee")
 	public void addAEmployeeTest() {
 		Employee employee = new Employee();
 		employee.setEmployeeFirstName("JAMES");
 		employee.setEmployeeLastName("LEE");
 		employee.setEmployeeJobTitle("ASSOCIATE");
-		employee.setEmployeeSSN("11112222");
+		employee.setEmployeeSSN("00011000");
 		employee.setEmployeeHomeAddress("780 Grand Street");
 		employee.setEmployeeSalary("80000.00");
 		HttpEntity<Employee> request = new HttpEntity<>(employee);
@@ -72,7 +84,7 @@ class PayrollBackendIntegrationTests {
 	}
 
 	@Test
-	@Order(4)
+	@Order(5)
 	@DisplayName("delete a employee by id")
 	public void deleteAEmployeeTest() {
 		testRestTemplate.delete("/hrpayroll/api/v1/deleteAEmployee/200");
@@ -82,7 +94,7 @@ class PayrollBackendIntegrationTests {
 
 	//@Disabled
 	@Test
-	@Order(5)
+	@Order(6)
 	@DisplayName("cleanup test data")
 	@Sql("/delete.sql")
 	public void cleanUp() {
