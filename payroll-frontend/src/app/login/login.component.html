@@ -1,0 +1,21 @@
+<div class="container">
+    <br/>
+    <h2>Log Into HR Payroll</h2>
+    <br/>
+    <form #loginForm="ngForm" (ngSubmit)="login()">
+      <h6 class="text-danger">{{ msg }}</h6>
+      <div class="form-group">
+        <label for="email">User Id:</label>
+        <input type="text" class="form-control" placeholder="Enter userId" name="userId" [(ngModel)]="userLogin.userId">
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" placeholder="Enter password" name="pwd" [(ngModel)]="userLogin.password">
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" name="remember"> Remember me</label>
+      </div>
+      <button type="submit" class="btn btn-info">Log In</button>
+    </form>
+  </div>
+
