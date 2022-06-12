@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { LoginsuccesslandingComponent } from './loginsuccesslanding/loginsuccesslanding.component';
 import { HeaderComponent } from './header/header.component';
+import { LoginService } from './services/login.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { HeaderComponent } from './header/header.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
