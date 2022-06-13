@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import {EmployeeService} from '../services/employee.service';
+import { Employee } from '../model/employee';
 
 @Component({
   selector: 'app-loginsuccesslanding',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./loginsuccesslanding.component.css']
 })
 export class LoginsuccesslandingComponent implements OnInit {
+  employees: Employee[] | undefined;
 
-  constructor() { }
-
+  constructor(private employeeService: EmployeeService) { }
+  
   ngOnInit(): void {
+    this.employeeService.getEmployees().subscribe((data: Employee[]) => {
+      console.log(data);
+      this.employees = data;
+    });
   }
 
 }
