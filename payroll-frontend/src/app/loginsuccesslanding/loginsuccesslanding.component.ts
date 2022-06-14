@@ -33,6 +33,9 @@ export class LoginsuccesslandingComponent implements OnInit {
   }
 
   goDeleteEmployee(id: number) {
-    this.route.navigate(["/deleteemployee", id]);
+    var result = confirm("Sure want to delete?");
+    if (result) {
+      this.route.navigate(["/deleteemployee", id]);
+    }
   }
 }
