@@ -10,13 +10,19 @@ import { LoginsuccesslandingComponent } from './loginsuccesslanding/loginsuccess
 import { HeaderComponent } from './header/header.component';
 import { LoginService } from './services/login.service';
 import { EmployeeService } from './services/employee.service';
+import { UpdateemployeeComponent } from './updateemployee/updateemployee.component';
+import { ViewemployeeComponent } from './viewemployee/viewemployee.component';
+import { DeleteemployeeComponent } from './deleteemployee/deleteemployee.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoginComponent,
-    LoginsuccesslandingComponent
+    LoginsuccesslandingComponent,
+    UpdateemployeeComponent,
+    ViewemployeeComponent,
+    DeleteemployeeComponent
   ],
   imports: [
     BrowserModule,

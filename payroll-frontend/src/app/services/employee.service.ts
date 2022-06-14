@@ -20,8 +20,8 @@ export class EmployeeService {
     return this.http.get<Employee[]>(`${this.getAllUrl}`);
   }
 
-  getAEmployee(employee: Employee): Observable<Employee>{
-    const url = `${this.getAUrl}/${employee.employeeId}`;
+  getAEmployee(id: number): Observable<Employee>{
+    const url = `${this.getAUrl}/${id}`;
     return this.http.get<Employee>(url);
   }
 
@@ -33,9 +33,9 @@ export class EmployeeService {
     return this.http.put<Employee>(this.putUrl, employee);
   }
 
-  deleteEmployee(employee: Employee): Observable<Employee> {
-    const url = `${this.deleteUrl}/${employee.employeeId}`;
-    return this.http.delete<Employee>(url);
+  deleteEmployee(id: number): Observable<any> {
+    const url = `${this.deleteUrl}/${id}`;
+    return this.http.delete<any>(url);
   }
 
   private handleError(httpError: HttpErrorResponse) {

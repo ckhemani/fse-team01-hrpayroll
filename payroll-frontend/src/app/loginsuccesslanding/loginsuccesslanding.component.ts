@@ -11,7 +11,7 @@ import { Employee } from '../model/employee';
 export class LoginsuccesslandingComponent implements OnInit {
   employees: Employee[] | undefined;
 
-  constructor(private employeeService: EmployeeService) { }
+  constructor(private employeeService: EmployeeService, private route : Router) { }
   
   ngOnInit(): void {
     this.employeeService.getEmployees().subscribe((data: Employee[]) => {
@@ -20,4 +20,15 @@ export class LoginsuccesslandingComponent implements OnInit {
     });
   }
 
+  goUpdateEmployee(id: number) {
+    this.route.navigate(["/updateemployee", id]);
+  }
+
+  goViewEmployee(id: number) {
+    this.route.navigate(["/viewemployee", id]);
+  }
+
+  goDeleteEmployee(id: number) {
+    this.route.navigate(["/deleteemployee", id]);
+  }
 }
