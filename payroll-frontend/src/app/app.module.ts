@@ -13,6 +13,7 @@ import { EmployeeService } from './services/employee.service';
 import { UpdateemployeeComponent } from './updateemployee/updateemployee.component';
 import { ViewemployeeComponent } from './viewemployee/viewemployee.component';
 import { DeleteemployeeComponent } from './deleteemployee/deleteemployee.component';
+import { AddemployeeComponent } from './addemployee/addemployee.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DeleteemployeeComponent } from './deleteemployee/deleteemployee.compone
     LoginsuccesslandingComponent,
     UpdateemployeeComponent,
     ViewemployeeComponent,
-    DeleteemployeeComponent
+    DeleteemployeeComponent,
+    AddemployeeComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { LoginsuccesslandingComponent } from './loginsuccesslanding/loginsuccess
 import { UpdateemployeeComponent } from './updateemployee/updateemployee.component';
 import { ViewemployeeComponent } from './viewemployee/viewemployee.component';
 import { DeleteemployeeComponent } from './deleteemployee/deleteemployee.component';
+import { AddemployeeComponent } from './addemployee/addemployee.component';
 
 const routes: Routes = [
   {path:'', component:LoginComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'viewemployee/:id', component:ViewemployeeComponent},
   {path:'viewemployee', component:ViewemployeeComponent},
   {path:'deleteemployee/:id', component:DeleteemployeeComponent},
+  {path:'addemployee', component:AddemployeeComponent},
 ];
 
 @NgModule({

@@ -20,6 +20,10 @@ export class LoginsuccesslandingComponent implements OnInit {
     });
   }
 
+  goAddEmployee() {
+    this.route.navigate(["/addemployee"]);
+  }
+
   goUpdateEmployee(id: number) {
     this.route.navigate(["/updateemployee", id]);
   }
