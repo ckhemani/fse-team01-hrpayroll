@@ -1,0 +1,32 @@
+<app-header title="HR Payroll" 
+            [isUserLoggedIn]="true"></app-header>
+<br/>
+<div class="container">
+    <h5>Employee Payroll List:</h5>
+    <p>(You may view, update, delete, or add employee)</p>            
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Employee Id</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Job Title</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let employee of employees">
+          <td>{{ employee.employeeId }}</td>
+          <td>{{ employee.employeeFirstName }}</td>
+          <td>{{ employee.employeeLastName }}</td>
+          <td>{{ employee.employeeJobTitle }}</td>
+          <td>
+            <button type="button" class="btn btn-info" (click)="goViewEmployee(employee.employeeId)">View Details</button>&nbsp;
+            <button type="button" class="btn btn-primary" (click)="goUpdateEmployee(employee.employeeId)">Update</button>&nbsp;
+            <button type="button" class="btn btn-danger" (click)="goDeleteEmployee(employee.employeeId)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-success" (click)="goAddEmployee()">Add New Employee</button>
+  </div>

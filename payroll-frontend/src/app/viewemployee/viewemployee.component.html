@@ -1,0 +1,46 @@
+<app-header title="HR Payroll" 
+            [isUserLoggedIn]="true"></app-header>
+<br/>
+<div class="container">
+    <h5>Employee Details:</h5>         
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Attributes</th>
+          <th>Values</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Employee Id:</td>
+          <td>{{ employee.employeeId }}</td>
+        </tr>
+        <tr>
+          <td>FirstName:</td>
+          <td>{{ employee.employeeFirstName }}</td>
+        </tr>
+        <tr>
+          <td>LastName:</td>
+          <td>{{ employee.employeeLastName }}</td>
+        </tr>
+        <tr>
+          <td>Job Title:</td>
+          <td>{{ employee.employeeJobTitle }}</td>
+        </tr>
+        <tr>
+          <td>Salary:</td>
+          <td>{{ employee.employeeSalary }}</td>
+        </tr>
+        <tr>
+          <td>Home Address:</td>
+          <td>{{ employee.employeeHomeAddress }}</td>
+        </tr>
+        <tr>
+          <td>SSN:</td>
+          <td>{{ employee.employeeSSN }}</td>
+        </tr>         
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-primary" (click)="goList()">Back</button>
+    <br/><br/>
+  </div>

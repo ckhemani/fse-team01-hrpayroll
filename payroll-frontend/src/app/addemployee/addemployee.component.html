@@ -1,0 +1,37 @@
+<app-header title="HR Payroll" 
+            [isUserLoggedIn]="true"></app-header>
+<div class="container">
+    <br/>
+        <h2 style="text-align: center">Adding New Employee</h2>
+    <br/>
+    <form onsubmit="window.location.reload()">
+        <div class="form-group">
+            <label for="employeeFirstName">Employee First Name:</label>
+            <input type="text" class="form-control" name="employeeFirstName" #employeeFirstName>
+        </div>
+        <div class="form-group">
+            <label for="employeeLastName">Employee Last Name:</label>
+            <input type="text" class="form-control"  name="employeeLastName" #employeeLastName>
+        </div>
+        <div class="form-group">
+            <label for="employeeJobTitle">Employee Job Title:</label>
+            <input type="text" class="form-control"  name="employeeJobTitle" #employeeJobTitle>
+        </div>
+        <div class="form-group">
+            <label for="employeeSalary">Employee Salary:</label>
+            <input type="text" class="form-control"  name="employeeSalary" #employeeSalary>
+        </div>
+        <div class="form-group">
+            <label for="employeeHomeAddress">Employee Home Address:</label>
+            <input type="text" class="form-control"  name="employeeHomeAddress" #employeeHomeAddress>
+        </div>
+        <div class="form-group">
+            <label for="employeeSSN">Employee SSN: </label>
+            <input type="text" class="form-control"  name="employeeSSN" #employeeSSN>
+        </div>
+        <button (click)="addEmployee(employeeFirstName.value,employeeLastName.value,employeeJobTitle.value,employeeSalary.value,employeeHomeAddress.value,employeeSSN.value)" class="btn btn-success">Add Employee</button>&nbsp;
+        <button type="button" class="btn btn-primary" (click)="goList()">Back</button>
+    </form>
+</div>
+
+

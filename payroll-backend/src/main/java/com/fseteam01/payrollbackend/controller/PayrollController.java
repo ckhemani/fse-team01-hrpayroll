@@ -34,7 +34,7 @@ public class PayrollController {
 
     //read a Employee request
     //http://localhost:8080/hrpayroll/api/v1/reatrieveAEmployee/1
-    @GetMapping("retrieveAEmployee/{employeeID}")
+    @GetMapping("retrieveAEmployee/{employeeId}")
     public Employee findById(@PathVariable int employeeId) {
         return payrollService.findById(employeeId);
     }

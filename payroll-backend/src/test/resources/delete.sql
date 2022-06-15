@@ -1,0 +1,1 @@
+DELETE FROM employee where employeeSSN = '00011000'

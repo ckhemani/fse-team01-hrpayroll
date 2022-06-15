@@ -8,25 +8,25 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "employeeId")
+    @Column(name = "employeeid")
     private int employeeId;
 
-    @Column(name = "employeeFirstName")
+    @Column(name = "employeefirstname")
     private String employeeFirstName;
 
-    @Column(name = "employeeLastName")
+    @Column(name = "employeelastname")
     private String employeeLastName;
 
-    @Column(name = "employeeJobTitle")
+    @Column(name = "employeejobtitle")
     private String employeeJobTitle;
 
-    @Column(name = "employeeSalary")
+    @Column(name = "employeesalary")
     private String employeeSalary;
 
-    @Column(name = "employeeHomeAddress")
+    @Column(name = "employeehomeaddress")
     private String employeeHomeAddress;
 
-    @Column(name = "employeeSSN")
+    @Column(name = "employeessn")
     private String employeeSSN;
 
 //    Default Constructor
